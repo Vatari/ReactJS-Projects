@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Menu from "./Menu";
 import Categories from "./Categories";
-import items from "./data";
+//import items from "./data";
 
 const url = "http://b8e00a7b5ca8.sn.mynetname.net:3012/jsonstore/menu";
 
 function App() {
-  const [menuItems, setmenuItems] = useState(items);
+  const [menuItems, setmenuItems] = useState([]);
   const [categories, setCategories] = useState([]);
 
   const fetchData = async () => {
