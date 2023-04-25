@@ -21,6 +21,11 @@ function App() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const filterItems = (category) => {
+    const newItems = menuItems.filter((item) => item.category === category);
+    setmenuItems(newItems);
+  };
   return (
     <main>
       <section className="menu section">
