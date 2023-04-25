@@ -6,14 +6,19 @@ import Categories from "./Categories";
 const url = "http://b8e00a7b5ca8.sn.mynetname.net:3012/jsonstore/menu";
 
 function App() {
-  const [menuItems, setmenuItems] = useState([]);
+  const [menuItems, setMenuItems] = useState([]);
   const [categories, setCategories] = useState([]);
 
   const fetchData = async () => {
     try {
       const response = await fetch(url);
       const items = await response.json();
-      setmenuItems(items);
+      setMenuItems(items);
+      const categories = [
+        "All",
+        ...new Set(Object.values(items).map((i) => i.category)),
+      ];
+      setCategories(categories);
     } catch (error) {
       console.log(error);
     }
@@ -29,8 +34,9 @@ function App() {
     const newItems = Object.values(menuItems).filter(
       (item) => item.category === category
     );
-    setmenuItems(newItems);
+    setMenuItems(newItems);
   };
+
   return (
     <main>
       <section className="menu section">
@@ -38,7 +44,7 @@ function App() {
           <h2>Menu</h2>
           <div className="underline"></div>
         </div>
-        <Categories filterItems={filterItems} />
+        <Categories categories={categories} filterItems={filterItems} />
         <Menu items={menuItems} />
       </section>
     </main>
