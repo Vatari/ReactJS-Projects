@@ -14,22 +14,26 @@ function App() {
       const response = await fetch(url);
       const items = await response.json();
       setMenuItems(items);
-      const categories = [
-        "All",
-        ...new Set(Object.values(items).map((i) => i.category)),
-      ];
-      setCategories(categories);
     } catch (error) {
       console.log(error);
     }
   };
+
   useEffect(() => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    const categories = [
+      "All",
+      ...new Set(Object.values(menuItems).map((i) => i.category)),
+    ];
+    setCategories(categories);
+  }, [menuItems]);
+
   const filterItems = (category) => {
     if (category === "All") {
-      return fetchData();
+      fetchData();
     }
     const newItems = Object.values(menuItems).filter(
       (item) => item.category === category
