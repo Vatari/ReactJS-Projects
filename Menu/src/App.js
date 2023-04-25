@@ -23,7 +23,9 @@ function App() {
   }, []);
 
   const filterItems = (category) => {
-    const newItems = menuItems.filter((item) => item.category === category);
+    const newItems = Object.values(menuItems).filter(
+      (item) => item.category === category
+    );
     setmenuItems(newItems);
   };
   return (
@@ -33,7 +35,7 @@ function App() {
           <h2>Menu</h2>
           <div className="underline"></div>
         </div>
-        <Categories />
+        <Categories filterItems={filterItems} />
         <Menu items={menuItems} />
       </section>
     </main>
