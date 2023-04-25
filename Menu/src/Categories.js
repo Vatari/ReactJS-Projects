@@ -6,6 +6,9 @@ const Categories = ({ filterItems }) => {
       <button className="filter-btn" onClick={() => filterItems("breakfast")}>
         Breakfast
       </button>
+      <button className="filter-btn" onClick={() => filterItems("All")}>
+        All
+      </button>
     </div>
   );
 };

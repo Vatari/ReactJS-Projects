@@ -23,6 +23,9 @@ function App() {
   }, []);
 
   const filterItems = (category) => {
+    if (category === "All") {
+      return fetchData();
+    }
     const newItems = Object.values(menuItems).filter(
       (item) => item.category === category
     );
