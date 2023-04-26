@@ -5,7 +5,7 @@ const url = "http://b8e00a7b5ca8.sn.mynetname.net:3012/jsonstore/tabs";
 function App() {
   const [loading, setLoading] = useState(true);
   const [jobs, setJobs] = useState([]);
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(1);
 
   const fetchJobs = async () => {
     const response = await fetch(url);
@@ -26,7 +26,36 @@ function App() {
     );
   }
 
-  return <h2>Jobs</h2>;
+  const { company, dates, duties, title } = jobs[value];
+
+  return (
+    <section className="section">
+      <div className="title">
+        <h2>Experience</h2>
+        <div className="underline"></div>
+      </div>
+      <div className="jobs-center">
+        <div className="btn-container">
+          {Object.values(jobs).map((j, i) => {
+            return <button>{j.company}</button>;
+          })}
+        </div>
+        <article className="job-info">
+          <h3>{title}</h3>
+          <h4>{company}</h4>
+          <p className="job-date">{dates}</p>
+          {duties.map((d, i) => {
+            return (
+              <div key={i} className="job-desc">
+                <FaAngleDoubleRight className="job-icon" />
+                <p>{d}</p>
+              </div>
+            );
+          })}
+        </article>
+      </div>
+    </section>
+  );
 }
 
 export default App;
