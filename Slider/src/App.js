@@ -22,8 +22,10 @@ function App() {
     fetchData();
   }, []);
 
+  const size = Object.keys(people).length;
+
   useEffect(() => {
-    const lastIndex = people.length - 1;
+    const lastIndex = size - 1;
     if (index < 0) {
       setIndex(lastIndex);
     }
@@ -31,7 +33,7 @@ function App() {
     if (index > lastIndex) {
       setIndex(0);
     }
-  }, [index, people]);
+  }, [index, size]);
 
   useEffect(() => {
     let slider = setInterval(() => {
