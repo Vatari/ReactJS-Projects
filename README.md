@@ -1,2 +1,1 @@
-# ReactJS-Projects
-My ReactJS Projects
+React JS Projects & Exercises
