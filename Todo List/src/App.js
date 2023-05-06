@@ -8,15 +8,16 @@ function App() {
   const [isEditing, setIsEditing] = useState(false);
   const [editId, setEditId] = useState(null);
   const [alert, setAlert] = useState({
-    show: true,
-    msg: "test message",
-    type: "success",
+    show: false,
+    msg: "",
+    type: "",
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name) {
       // display Alert
+      setAlert({ show: true, msg: "Please enter value", type: "danger" });
     } else if (name && isEditing) {
       //implement Edit
     } else {
