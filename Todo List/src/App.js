@@ -19,7 +19,18 @@ function App() {
       // display Alert
       showAlert(true, "danger", "Please enter value");
     } else if (name && isEditing) {
-      //implement Edit
+      setList(
+        list.map((item) => {
+          if (item.id === editId) {
+            return { ...item, title: name };
+          }
+          return item;
+        })
+      );
+      setName("");
+      setEditId(null);
+      setIsEditing(false);
+      showAlert(true, "success", "Item is changed");
     } else {
       showAlert(true, "success", "Item added successfully");
       const newItem = { id: new Date().getTime().toString(), title: name };
