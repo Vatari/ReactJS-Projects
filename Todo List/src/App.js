@@ -38,13 +38,13 @@ function App() {
   const removeItem = (id) => {
     showAlert(true, "danger", "Item removed successfully");
     setList(list.filter((item) => item.id !== id));
-    setEditId(id);
-    setName(editedItem.title);
   };
 
   const editItem = (id) => {
     const editedItem = list.find((item) => item.id === id);
     setIsEditing(true);
+    setEditId(id);
+    setName(editedItem.title);
   };
   return (
     <section className="section-center">
