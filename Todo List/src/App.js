@@ -2,6 +2,15 @@ import React, { useState, useEffect } from "react";
 import List from "./List";
 import Alert from "./Alert";
 
+const getLocalStorage = () => {
+  let list = localStorage.getItem("todo-list");
+  if (list) {
+    return JSON.parse(localStorage.getItem("todo-list"));
+  } else {
+    return [];
+  }
+};
+
 function App() {
   const [name, setName] = useState("");
   const [list, setList] = useState([]);
