@@ -33,6 +33,7 @@ export const AppProvider = ({ children }) => {
         openSidebar,
         closeSubmenu,
         closeSidebar,
+        location,
       }}
     >
       {children}
