@@ -6,6 +6,9 @@ import { useGlobalContext } from "./context";
 const Navbar = () => {
   const { openSidebar, openSubmenu, closeSubmenu } = useGlobalContext();
   const displaySubmenu = (e) => {
+    const page = e.target.textContext;
+    const tempBtn = e.target.get.getBoundingClientRect();
+
     openSubmenu();
   };
 
