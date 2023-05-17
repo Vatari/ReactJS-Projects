@@ -1,1 +1,1 @@
-Cart project using redux
+Cart project using useReducer
