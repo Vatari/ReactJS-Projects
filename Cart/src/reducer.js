@@ -22,12 +22,14 @@ const reducer = (state, action) => {
   }
 
   if (action.type === "DECREASE") {
-    let tempCart = state.cart.map((item) => {
-      if (item.id === action.payload) {
-        return { ...item, amount: item.amount - 1 };
-      }
-      return CartItem;
-    });
+    let tempCart = state.cart
+      .map((item) => {
+        if (item.id === action.payload) {
+          return { ...item, amount: item.amount - 1 };
+        }
+        return CartItem;
+      })
+      .filter((CartItem) => CartItem.amount !== 0);
     return { ...state, cart: tempCart };
   }
 
