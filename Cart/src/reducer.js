@@ -1,4 +1,4 @@
-import CartItem from "./CartItem";
+import cartItem from "./CartItem";
 
 const reducer = (state, action) => {
   if (action.type === "CLEAR_ITEMS") {
@@ -27,9 +27,9 @@ const reducer = (state, action) => {
         if (item.id === action.payload) {
           return { ...item, amount: item.amount - 1 };
         }
-        return CartItem;
+        return item;
       })
-      .filter((CartItem) => CartItem.amount !== 0);
+      .filter((item) => item.amount !== 0);
     return { ...state, cart: tempCart };
   }
 
