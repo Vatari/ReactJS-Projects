@@ -3,7 +3,8 @@ import cartItems from "./data";
 import reducer from "./reducer";
 // ATTENTION!!!!!!!!!!
 // I SWITCHED TO PERMANENT DOMAIN
-const url = "https://course-api.com/react-useReducer-cart-project";
+const url = "http://b8e00a7b5ca8.sn.mynetname.net:3012/jsonstore/cartItems";
+
 const AppContext = React.createContext();
 
 const initialState = {
