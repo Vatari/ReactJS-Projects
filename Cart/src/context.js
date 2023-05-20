@@ -7,9 +7,19 @@ const url = "http://b8e00a7b5ca8.sn.mynetname.net:3012/jsonstore/cartItems";
 
 const AppContext = React.createContext();
 
+const fetchData = async () => {
+  try {
+    const response = await fetch(url);
+    const cartItems = await response.json();
+    return cartItems;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const initialState = {
   loading: false,
-  cart: cartItems,
+  cart: fetchData(),
   total: 0,
   amount: 0,
 };
