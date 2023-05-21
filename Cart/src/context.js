@@ -19,12 +19,11 @@ const fetchData = async () => {
     const response = await fetch(url);
     const cartItems = await response.json();
     initialState.cart = cartItems;
-    return cartItems;
   } catch (error) {
     console.log(error);
   }
 };
-
+console.log(initialState.cart);
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
