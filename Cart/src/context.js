@@ -18,7 +18,7 @@ const fetchData = async () => {
   try {
     const response = await fetch(url);
     const cartItems = await response.json();
-    console.log(cartItems);
+    initialState.cart = cartItems;
     return cartItems;
   } catch (error) {
     console.log(error);
