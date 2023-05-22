@@ -15,7 +15,6 @@ const initialState = {
 };
 
 const AppProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const clearItems = () => {
@@ -36,9 +35,7 @@ const AppProvider = ({ children }) => {
     try {
       const response = await fetch(url);
       const cartItems = await response.json();
-      dispatch(cartItems);
-      setCartItems(cartItems);
-      console.log(state.cart);
+      initialState.cart = cartItems;
     } catch (error) {
       console.log(error);
     }
@@ -46,9 +43,6 @@ const AppProvider = ({ children }) => {
 
   useEffect(() => {
     fetchData();
-  }, []);
-
-  useEffect(() => {
     dispatch({ type: "GET_TOTALS" });
   }, [state.cart]);
 
