@@ -1,5 +1,5 @@
 import React, { useState, useContext, useReducer, useEffect } from "react";
-import cartItems from "./data";
+//import cartItems from "./data";
 import reducer from "./reducer";
 // ATTENTION!!!!!!!!!!
 // I SWITCHED TO PERMANENT DOMAIN
