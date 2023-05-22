@@ -35,7 +35,7 @@ const AppProvider = ({ children }) => {
     try {
       const response = await fetch(url);
       const cartItems = await response.json();
-      initialState.cart = cartItems;
+      dispatch({ ...state, payload: cartItems });
     } catch (error) {
       console.log(error);
     }
