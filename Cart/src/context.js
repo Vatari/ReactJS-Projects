@@ -24,7 +24,6 @@ const fetchData = async () => {
     console.log(error);
   }
 };
-console.log(initialState.cart);
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
