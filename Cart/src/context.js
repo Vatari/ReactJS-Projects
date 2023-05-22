@@ -18,7 +18,7 @@ const fetchData = async () => {
   try {
     const response = await fetch(url);
     const cartItems = await response.json();
-    initialState.cart = cartItems;
+    return cartItems;
   } catch (error) {
     console.log(error);
   }
@@ -42,7 +42,9 @@ const AppProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    fetchData();
+    const cartItems = fetchData();
+    initialState.cart = Object.values(cartItems);
+    console.log(initialState.cart);
     dispatch({ type: "GET_TOTALS" });
   }, [state.cart]);
 
