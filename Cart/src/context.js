@@ -35,8 +35,9 @@ const AppProvider = ({ children }) => {
   const fetchData = async () => {
     try {
       const response = await fetch(url);
-      const cartItems = await response.json();
-      setCartItems(cartItems);
+      const items = await response.json();
+      setCartItems(items);
+      initialState.cart = cartItems;
     } catch (error) {
       console.log(error);
     }
