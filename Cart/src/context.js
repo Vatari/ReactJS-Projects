@@ -16,6 +16,7 @@ const initialState = {
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [cartItems, setCartItems] = useState([]);
 
   const clearItems = () => {
     dispatch({ type: "CLEAR_ITEMS" });
@@ -35,7 +36,7 @@ const AppProvider = ({ children }) => {
     try {
       const response = await fetch(url);
       const cartItems = await response.json();
-      dispatch({ ...state, payload: cartItems });
+      setCartItems(cartItems);
     } catch (error) {
       console.log(error);
     }
