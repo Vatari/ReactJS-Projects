@@ -7,16 +7,20 @@ const url = "http://b8e00a7b5ca8.sn.mynetname.net:3012/jsonstore/cartItems";
 
 const AppContext = React.createContext();
 
-const initialState = {
-  loading: false,
-  cart: [],
-  total: 0,
-  amount: 0,
-};
-
 const AppProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
   const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const initialState = {
+    loading: false,
+    cart: cartItems,
+    total: 0,
+    amount: 0,
+  };
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const clearItems = () => {
     dispatch({ type: "CLEAR_ITEMS" });
@@ -37,14 +41,12 @@ const AppProvider = ({ children }) => {
       const response = await fetch(url);
       const items = await response.json();
       setCartItems(items);
-      initialState.cart = cartItems;
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    fetchData();
     dispatch({ type: "GET_TOTALS" });
   }, [state.cart]);
 
