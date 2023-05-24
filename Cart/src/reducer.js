@@ -14,7 +14,7 @@ const reducer = (state, action) => {
   if (action.type === "INCREASE") {
     let tempCart = state.cart.map((item) => {
       if (item.id === action.payload) {
-        return { ...item, amount: item.amount + 1 };
+        return { ...item, amount: Number(item.amount) + 1 };
       }
       return item;
     });
@@ -25,7 +25,7 @@ const reducer = (state, action) => {
     let tempCart = state.cart
       .map((item) => {
         if (item.id === action.payload) {
-          return { ...item, amount: item.amount - 1 };
+          return { ...item, amount: Number(item.amount) - 1 };
         }
         return item;
       })
@@ -39,9 +39,9 @@ const reducer = (state, action) => {
         const { price, amount } = item;
         const itemTotal = price * amount;
 
-        cartTotal.total += itemTotal;
+        cartTotal.total += Number(itemTotal);
 
-        cartTotal.amount += amount;
+        cartTotal.amount += Number(amount);
         return cartTotal;
       },
       {
