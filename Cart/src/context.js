@@ -8,15 +8,9 @@ const url = "http://b8e00a7b5ca8.sn.mynetname.net:3012/jsonstore/cartItems";
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   const initialState = {
     loading: false,
-    cart: cartItems,
+    cart: [],
     total: 0,
     amount: 0,
   };
@@ -37,14 +31,20 @@ const AppProvider = ({ children }) => {
   };
 
   const fetchData = async () => {
+    dispatch({ type: "LOADING" });
+
     try {
       const response = await fetch(url);
       const items = await response.json();
-      setCartItems(items);
+      dispatch({ type: "DISPLAY_ITEMS", payload: items });
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   useEffect(() => {
     dispatch({ type: "GET_TOTALS" });
