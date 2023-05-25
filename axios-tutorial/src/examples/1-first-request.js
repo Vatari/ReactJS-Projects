@@ -7,7 +7,8 @@ const FirstRequest = () => {
   const fetchData = async () => {
     try {
       const response = await axios(url);
-      console.log(response);
+      const data = response.data;
+      console.log(data);
     } catch (err) {}
   };
   useEffect(() => {
