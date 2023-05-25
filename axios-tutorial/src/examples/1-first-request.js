@@ -9,7 +9,9 @@ const FirstRequest = () => {
       const response = await axios(url);
       const data = response.data;
       console.log(data);
-    } catch (err) {}
+    } catch (err) {
+      console.log(err.response);
+    }
   };
   useEffect(() => {
     fetchData();
