@@ -1,13 +1,5 @@
 # Axios Tutorial
 
-#### React Course
-
-[My React Course](https://www.udemy.com/course/react-tutorial-and-projects-course/?referralCode=FEE6A921AF07E2563CEF)
-
-#### Support
-
-Find the App Useful? [You can always buy me a coffee](https://www.buymeacoffee.com/johnsmilga)
-
 #### Docs
 
 [Axios Docs](https://axios-http.com/docs/intro)
@@ -19,7 +11,7 @@ npm install axios
 ```
 
 ```js
-<script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 ```
 
 #### First Request
@@ -38,7 +30,7 @@ npm install axios
 - error in error.response
 
 ```js
-import axios from 'axios';
+import axios from "axios";
 
 const fetchData = async () => {
   try {
@@ -65,7 +57,7 @@ const fetchDadJoke = async () => {
   try {
     const { data } = await axios(url, {
       headers: {
-        Accept: 'application/json',
+        Accept: "application/json",
       },
     });
     // console.log(data);
@@ -93,20 +85,20 @@ try {
 #### Global Defaults
 
 ```js
-axios.defaults.headers.common['Accept'] = 'application/json';
-axios.defaults.baseURL = 'https://api.example.com';
-axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-axios.defaults.headers.post['Content-Type'] =
-  'application/x-www-form-urlencoded';
+axios.defaults.headers.common["Accept"] = "application/json";
+axios.defaults.baseURL = "https://api.example.com";
+axios.defaults.headers.common["Authorization"] = AUTH_TOKEN;
+axios.defaults.headers.post["Content-Type"] =
+  "application/x-www-form-urlencoded";
 ```
 
 #### Custom Instance
 
 ```js
 const authFetch = axios.create({
-  baseURL: 'https://course-api.com',
+  baseURL: "https://course-api.com",
   headers: {
-    Accept: 'application/json',
+    Accept: "application/json",
   },
 });
 ```
@@ -118,8 +110,8 @@ const authFetch = axios.create({
 ```js
 authFetch.interceptors.request.use(
   (request) => {
-    request.headers.common['Accept'] = `application/json`;
-    console.log('request sent');
+    request.headers.common["Accept"] = `application/json`;
+    console.log("request sent");
     // must return request
     return request;
   },
@@ -130,14 +122,14 @@ authFetch.interceptors.request.use(
 
 authFetch.interceptors.response.use(
   (response) => {
-    console.log('got response');
+    console.log("got response");
     return response;
   },
   (error) => {
     console.log(error.response);
     if (error.response.status === 404) {
       // do something
-      console.log('NOT FOUND');
+      console.log("NOT FOUND");
     }
     return Promise.reject(error);
   }
