@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import axios from "axios";
 // limit, if 429 wait for 15 min and try again
-const url = "https://course-api.com/react-store-products";
+const url =
+  "http://b8e00a7b5ca8.sn.mynetname.net:3012/jsonstore/react-store-products";
 
 const FirstRequest = () => {
   const fetchData = async () => {
