@@ -14,7 +14,10 @@ const Headers = () => {
           Accept: "application/json",
         },
       });
-    } catch (error) {}
+      setJoke(res.data.joke);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
