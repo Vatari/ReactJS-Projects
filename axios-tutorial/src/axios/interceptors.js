@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const authFetch = axios.create({
-  baseURL: "https://course-api.com",
+  baseURL: "http://b8e00a7b5ca8.sn.mynetname.net:3012/jsonstore",
 });
 
 authFetch.interceptors.request.use(

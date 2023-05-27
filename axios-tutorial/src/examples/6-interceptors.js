@@ -4,7 +4,7 @@ import authFetch from "../axios/interceptors";
 const Interceptors = () => {
   const fetchData = async () => {
     try {
-      const res = await authFetch("/react-store-productss");
+      const res = await authFetch("/react-store-products");
     } catch (error) {}
   };
 
