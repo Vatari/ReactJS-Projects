@@ -5,11 +5,11 @@ const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("a");
-  const [coctails, setCoctails] = useState([]);
+  const [cocktails, setCoctails] = useState([]);
   return (
-    <AppContext.Provider value={{ loading, search, coctails, setSearch }}>
+    <AppContext.Provider value={{ loading, search, cocktails, setSearch }}>
       {children}
     </AppContext.Provider>
   );
