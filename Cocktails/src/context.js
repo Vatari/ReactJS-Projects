@@ -7,7 +7,12 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("a");
-  return <AppContext.Provider value="hello">{children}</AppContext.Provider>;
+  const [coctails, setCoctails] = useState([]);
+  return (
+    <AppContext.Provider value={{ loading, search, coctails, setSearch }}>
+      {children}
+    </AppContext.Provider>
+  );
 };
 // make sure use
 export const useGlobalContext = () => {
