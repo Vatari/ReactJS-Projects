@@ -9,7 +9,7 @@ const CocktailList = () => {
     return <Loading />;
   }
   if (cocktails.length < 1) {
-    return <h2 className="section-title">No coctails found...</h2>;
+    return <h2 className="section-title">No cocktails found...</h2>;
   }
   return (
     <div>

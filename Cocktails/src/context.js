@@ -16,6 +16,18 @@ const AppProvider = ({ children }) => {
       const data = await res.json();
       const { drinks } = data;
       if (drinks) {
+        const newCocktails = drinks.map((drink) => {
+          const { idDrink, strDrink, stDrinkThumb, strAlcholoic, strGlass } =
+            drink;
+          return {
+            id: idDrink,
+            name: strDrink,
+            image: stDrinkThumb,
+            info: strAlcholoic,
+            glass: strGlass,
+          };
+        });
+        setCocktails(newCocktails);
       } else {
         setCocktails([]);
       }
