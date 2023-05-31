@@ -17,13 +17,13 @@ const AppProvider = ({ children }) => {
       const { drinks } = data;
       if (drinks) {
         const newCocktails = drinks.map((drink) => {
-          const { idDrink, strDrink, stDrinkThumb, strAlcholoic, strGlass } =
+          const { idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass } =
             drink;
           return {
             id: idDrink,
             name: strDrink,
-            image: stDrinkThumb,
-            info: strAlcholoic,
+            image: strDrinkThumb,
+            info: strAlcoholic,
             glass: strGlass,
           };
         });
