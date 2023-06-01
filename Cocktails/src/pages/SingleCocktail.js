@@ -17,7 +17,7 @@ const SingleCocktail = () => {
         if (data.drinks) {
           const {
             strDrink: name,
-            strDrink: image,
+            strDrinkThumb: image,
             strAlcoholic: info,
             strCategory: category,
             strGlass: glass,
@@ -35,7 +35,6 @@ const SingleCocktail = () => {
             strIngredient4,
             strIngredient5,
           ];
-          setCocktail(newCocktail);
           const newCocktail = {
             name,
             image,
@@ -45,6 +44,7 @@ const SingleCocktail = () => {
             instructions,
             ingredients,
           };
+          setCocktail(newCocktail);
         } else {
           setCocktail(null);
         }
