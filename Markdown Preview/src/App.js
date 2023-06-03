@@ -13,7 +13,6 @@ function App() {
         ></textarea>
         <article className="result">
           <ReactMarkdown>{markdown}</ReactMarkdown>
-          {markdown}
         </article>
       </section>
     </main>
