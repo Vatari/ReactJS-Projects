@@ -70,6 +70,9 @@ function App() {
               <FaLock />
             </button>
           </div>
+          <button className="btn" type="button">
+            {loading ? "Loading..." : "random user"}
+          </button>
         </div>
       </div>
     </main>
