@@ -13,7 +13,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [person, setPerson] = useState(null);
   const [title, settitle] = useState("Name");
-  const [value, setValue] = useState("Random person");
+  const [value, setValue] = useState("random person");
 
   const handleValue = (e) => {
     console.log(e.target);
@@ -23,7 +23,14 @@ function App() {
       <div className="block bcg-black"></div>
       <div className="block">
         <div className="container">
-          <img src={defaultImage} alt="random user" className="user-img" />
+          <img
+            src={(person && person.image) || defaultImage}
+            alt="random user"
+            className="user-img"
+          />
+          <p className="user-title">My {title} is</p>
+          <p className="user-value">{value}</p>
+          <div className="values-list"></div>
         </div>
       </div>
     </main>
