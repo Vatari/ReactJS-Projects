@@ -18,6 +18,12 @@ function App() {
   const getPerson = async () => {
     const res = await fetch(url);
     const data = await res.json();
+    const person = data.results[0];
+    const { phone, email } = person;
+    const { large: image } = person.picture;
+    const {
+      login: { password },
+    } = person;
   };
 
   useEffect(() => {
