@@ -15,6 +15,15 @@ function App() {
   const [title, settitle] = useState("Name");
   const [value, setValue] = useState("random person");
 
+  const getPerson = async () => {
+    const res = await fetch(url);
+    const data = await res.json();
+  };
+
+  useEffect(() => {
+    getPerson();
+  }, []);
+
   const handleValue = (e) => {
     console.log(e.target);
   };
