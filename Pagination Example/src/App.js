@@ -37,7 +37,7 @@ function App() {
   return (
     <main>
       <div className="section-title">
-        <h1>{loading ? "Loading..." : "Pagination"}</h1>
+        <h1>{loading ? "Loading..." : "Pagination example"}</h1>
         <div className="underline"></div>
       </div>
       <section className="followers">
@@ -49,7 +49,7 @@ function App() {
         {!loading && (
           <div className="btn-container">
             <button className="prev-btn" onClick={prevPage}>
-              Previous
+              previous
             </button>
             {data.map((item, index) => {
               return (
@@ -63,7 +63,7 @@ function App() {
               );
             })}
             <button className="next-btn" onClick={nextPage}>
-              Next
+              next
             </button>
           </div>
         )}
