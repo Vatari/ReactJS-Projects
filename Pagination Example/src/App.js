@@ -14,6 +14,7 @@ function App() {
   const handlePage = (index) => {
     setPage(index);
   };
+
   return (
     <main>
       <div className="section-title">
