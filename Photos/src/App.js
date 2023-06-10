@@ -11,14 +11,18 @@ function App() {
   const fetchPhotos = async () => {
     setLoading(true);
     let url;
-    url = `${mainUrl}?clientID=BwEo4txqX7VeK4WOcuyblsfoaYGUc3kyLKNmIjAcaf8`;
+    url = `${mainUrl}?client_id=BwEo4txqX7VeK4WOcuyblsfoaYGUc3kyLKNmIjAcaf8`;
     try {
       const res = await fetch(url);
       const data = await res.json();
     } catch (err) {
+      setLoading(false);
       console.log(err);
     }
   };
+  useEffect(() => {
+    fetchPhotos();
+  }, []);
   return <h2>stock photos starter</h2>;
 }
 
