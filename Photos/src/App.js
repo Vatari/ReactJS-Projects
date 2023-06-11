@@ -15,6 +15,8 @@ function App() {
     try {
       const res = await fetch(url);
       const data = await res.json();
+      setPhotos(data);
+      setLoading(false);
     } catch (err) {
       setLoading(false);
       console.log(err);
@@ -23,7 +25,16 @@ function App() {
   useEffect(() => {
     fetchPhotos();
   }, []);
-  return <h2>stock photos starter</h2>;
+  return (
+    <main>
+      <section />
+      <search>
+        <form className="search-form">
+          <input type="text" placeholder="search" className="form-input" />
+        </form>
+      </search>
+    </main>
+  );
 }
 
 export default App;
