@@ -13,7 +13,15 @@ const Photo = ({
   return (
     <article className="photo">
       <img src={regular} alt={alt_desc} />
-      <div className="photo-info"></div>
+      <div className="photo-info">
+        <div>
+          <h4>{name}</h4>
+          <p>{likes}</p>
+        </div>
+        <a href={portfolio_url}>
+          <img src={medium} alt={name} className="user-img" />
+        </a>
+      </div>
     </article>
   );
 };
