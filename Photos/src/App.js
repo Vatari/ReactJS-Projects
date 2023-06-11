@@ -25,14 +25,24 @@ function App() {
   useEffect(() => {
     fetchPhotos();
   }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault(0);
+  };
   return (
     <main>
       <section />
       <search>
         <form className="search-form">
           <input type="text" placeholder="search" className="form-input" />
+          <button className="subimt-btn" type="submit" onClick={handleSubmit}>
+            <FaSearch />
+          </button>
         </form>
       </search>
+      <section className="photos">
+        <div className="photos-center"></div>
+      </section>
     </main>
   );
 }
