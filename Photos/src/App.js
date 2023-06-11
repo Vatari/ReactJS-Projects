@@ -31,15 +31,14 @@ function App() {
   };
   return (
     <main>
-      <section />
-      <search>
+      <section className="search">
         <form className="search-form">
           <input type="text" placeholder="search" className="form-input" />
           <button className="subimt-btn" type="submit" onClick={handleSubmit}>
             <FaSearch />
           </button>
         </form>
-      </search>
+      </section>
       <section className="photos">
         <div className="photos-center">
           {photos.map((image) => {
