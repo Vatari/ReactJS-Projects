@@ -11,7 +11,7 @@ function App() {
   const fetchPhotos = async () => {
     setLoading(true);
     let url;
-    url = `${mainUrl}?client_id=${clientID}`;
+    url = `${mainUrl}${clientID}`;
     try {
       const res = await fetch(url);
       const data = await res.json();
