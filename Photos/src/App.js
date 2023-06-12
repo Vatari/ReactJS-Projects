@@ -17,7 +17,9 @@ function App() {
     try {
       const res = await fetch(url);
       const data = await res.json();
-      setPhotos(data);
+      setPhotos((oldPhotos) => {
+        return [...oldPhotos, ...data];
+      });
       setLoading(false);
     } catch (err) {
       setLoading(false);
