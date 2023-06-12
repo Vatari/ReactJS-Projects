@@ -26,7 +26,7 @@ function App() {
   };
   useEffect(() => {
     fetchPhotos();
-  }, []);
+  }, [page]);
 
   useEffect(() => {
     const event = window.addEventListener("scroll", () => {
@@ -34,6 +34,9 @@ function App() {
         !loading &&
         window.innerHeight + window.scrollY >= document.body.scrollHeight - 2
       ) {
+        setPage((oldPage) => {
+          return oldPage + 1;
+        });
       }
     });
     return () => window.removeEventListener("scroll", event);
