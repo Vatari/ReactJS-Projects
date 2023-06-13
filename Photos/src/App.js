@@ -8,7 +8,7 @@ const searchUrl = `https://api.unsplash.com/search/photos/`;
 function App() {
   const [loading, setLoading] = useState(false);
   const [photos, setPhotos] = useState([]);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [query, setQuery] = useState("");
 
   const fetchPhotos = async () => {
@@ -56,11 +56,11 @@ function App() {
       }
     });
     return () => window.removeEventListener("scroll", event);
-  }, []);
+  }, [loading]);
 
   const handleSubmit = (e) => {
-    e.preventDefault(0);
-    fetchPhotos();
+    e.preventDefault();
+    setPage(1);
   };
   return (
     <main>
@@ -73,7 +73,7 @@ function App() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-          <button className="subimt-btn" type="submit" onClick={handleSubmit}>
+          <button type="submit" className="submit-btn" onClick={handleSubmit}>
             <FaSearch />
           </button>
         </form>
@@ -81,7 +81,7 @@ function App() {
       <section className="photos">
         <div className="photos-center">
           {photos.map((image) => {
-            return <Photo key={image.id} {...image} />;
+            return <Photo key={Math.random()} {...image} />;
           })}
         </div>
         {loading && <h2 className="loading">Loading...</h2>}
