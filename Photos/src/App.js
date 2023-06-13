@@ -15,7 +15,12 @@ function App() {
     setLoading(true);
     let url;
     const urlPage = `&page=${page}`;
+    const urlQuery = `&query=${query}`;
     url = `${mainUrl}${clientID}${urlPage}`;
+
+    if (query) {
+      url = `${searchUrl}${clientID}${urlPage}${urlQuery}`;
+    }
     try {
       const res = await fetch(url);
       const data = await res.json();
