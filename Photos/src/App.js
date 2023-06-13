@@ -54,6 +54,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault(0);
+    fetchPhotos();
   };
   return (
     <main>
