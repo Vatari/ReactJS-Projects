@@ -16,10 +16,11 @@ function App() {
     let url;
     const urlPage = `&page=${page}`;
     const urlQuery = `&query=${query}`;
-    url = `${mainUrl}${clientID}${urlPage}`;
 
     if (query) {
       url = `${searchUrl}${clientID}${urlPage}${urlQuery}`;
+    } else {
+      url = `${mainUrl}${clientID}${urlPage}`;
     }
     try {
       const res = await fetch(url);
