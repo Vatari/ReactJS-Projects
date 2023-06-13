@@ -26,7 +26,11 @@ function App() {
       const res = await fetch(url);
       const data = await res.json();
       setPhotos((oldPhotos) => {
-        return [...oldPhotos, ...data];
+        if (query) {
+          return [...oldPhotos, ...data.result];
+        } else {
+          return [...oldPhotos, ...data];
+        }
       });
       setLoading(false);
     } catch (err) {
