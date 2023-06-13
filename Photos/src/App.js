@@ -27,7 +27,7 @@ function App() {
       const data = await res.json();
       setPhotos((oldPhotos) => {
         if (query) {
-          return [...oldPhotos, ...data.result];
+          return [...oldPhotos, ...data.results];
         } else {
           return [...oldPhotos, ...data];
         }
