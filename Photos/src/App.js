@@ -58,9 +58,8 @@ function App() {
     if (!query) return;
     if (page === 1) {
       fetchPhotos();
-    } else {
-      setPage(1);
     }
+    setPage(1);
   };
   return (
     <main>
