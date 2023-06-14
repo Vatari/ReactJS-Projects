@@ -10,6 +10,7 @@ function App() {
   const [photos, setPhotos] = useState([]);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
+  const [newImages, setNewImages] = useState(false);
   const mounted = useRef(false);
 
   const fetchPhotos = async () => {
@@ -35,6 +36,7 @@ function App() {
           return [...oldPhotos, ...data];
         }
       });
+      setNewImages(false);
       setLoading(false);
     } catch (err) {
       setLoading(false);
@@ -51,6 +53,17 @@ function App() {
       mounted.current = true;
       return;
     }
+  }, [newImages]);
+
+  const event = () => {
+    if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) {
+      setNewImages(true);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", event);
+    return () => window.removeEventListener("scroll", event);
   }, []);
 
   const handleSubmit = (e) => {
