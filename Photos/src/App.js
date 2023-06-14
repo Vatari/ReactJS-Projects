@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 import Photo from "./Photo";
 const clientID = `?client_id=${process.env.REACT_APP_ACCESS_KEY}`;
@@ -10,6 +10,7 @@ function App() {
   const [photos, setPhotos] = useState([]);
   const [page, setPage] = useState(1);
   const [query, setQuery] = useState("");
+  const mounted = useRef(false);
 
   const fetchPhotos = async () => {
     setLoading(true);
@@ -45,9 +46,21 @@ function App() {
     // eslint-disable-next-line
   }, [page]);
 
+  useEffect(() => {
+    if (!mounted.current) {
+      mounted.current = true;
+      return;
+    }
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    setPage(1);
+    if (!query) return;
+    if (page === 1) {
+      fetchPhotos();
+    } else {
+      setPage(1);
+    }
   };
   return (
     <main>
