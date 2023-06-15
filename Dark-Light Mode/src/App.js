@@ -8,8 +8,14 @@ function App() {
       <nav>
         <div className="nav-center">
           <h1>Overreacted</h1>
+          <button className="btn">Toggle theme</button>
         </div>
       </nav>
+      <section className="articles">
+        {data.map((item) => {
+          return <Article key={item.id} {...item} />;
+        })}
+      </section>
     </main>
   );
 }
