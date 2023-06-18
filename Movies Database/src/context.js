@@ -18,7 +18,7 @@ const AppProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    fetchMovies(`${API_ENDPOINT}`);
+    fetchMovies(`${API_ENDPOINT}$s=${query}`);
   }, []);
 
   return <AppContext.Provider value="hello">{children}</AppContext.Provider>;
