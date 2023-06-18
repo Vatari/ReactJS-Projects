@@ -8,6 +8,13 @@ const AppProvider = ({ children }) => {
   const [error, setError] = useState({ show: false, msg: "" });
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("batman");
+
+  const fetchMovies = (url) => {};
+
+  useEffect(() => {
+    fetchMovies(`${API_ENDPOINT}`);
+  }, []);
+
   return <AppContext.Provider value="hello">{children}</AppContext.Provider>;
 };
 // make sure use
