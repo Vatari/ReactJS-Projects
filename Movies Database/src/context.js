@@ -9,7 +9,13 @@ const AppProvider = ({ children }) => {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("batman");
 
-  const fetchMovies = (url) => {};
+  const fetchMovies = async (url) => {
+    setIsLoading(true);
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+    } catch (err) {}
+  };
 
   useEffect(() => {
     fetchMovies(`${API_ENDPOINT}`);
