@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "./Home";
 import Movie from "./SingleMovie";
+import Movies from "./Movies";
 
 function App() {
   return (
