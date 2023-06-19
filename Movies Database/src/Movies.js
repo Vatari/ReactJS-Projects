@@ -17,7 +17,10 @@ const Movies = () => {
         return (
           <Link to={`/movies/${id}`} key={id} className="movie">
             <article>
-              <img src={poster} alt="" />
+              <img src={poster} alt={title} />
+              <div className="movie-info">
+                <h4 className="title">{title}</h4>
+              </div>
             </article>
           </Link>
         );
