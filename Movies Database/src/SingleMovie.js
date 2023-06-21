@@ -11,6 +11,13 @@ const SingleMovie = () => {
   const fetchMovie = async (url) => {
     const res = await fetch(url);
     const data = await res.json();
+    if (data.Response === "False") {
+      setError({ show: true, msg: data.Error });
+      setLoading(false);
+    } else {
+      SetMovie(data);
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
