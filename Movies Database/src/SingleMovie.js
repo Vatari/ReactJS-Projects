@@ -4,6 +4,9 @@ import { API_ENDPOINT } from "./context";
 
 const SingleMovie = () => {
   const { id } = useParams();
+  const [movie, SetMovie] = useState({});
+  const [isLoading, setLoading] = useState(true);
+  const [error, setError] = useState({ show: false, msg: "" });
   return <h2>single movie</h2>;
 };
 
