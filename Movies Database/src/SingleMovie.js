@@ -13,7 +13,9 @@ const SingleMovie = () => {
     const data = await res.json();
   };
 
-  useEffect(() => {}, [id]);
+  useEffect(() => {
+    fetchMovie(`${API_ENDPOINT}&i=${id}`);
+  }, [id]);
   return <h2>single movie</h2>;
 };
 
