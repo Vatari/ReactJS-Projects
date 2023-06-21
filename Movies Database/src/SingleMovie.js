@@ -7,6 +7,13 @@ const SingleMovie = () => {
   const [movie, SetMovie] = useState({});
   const [isLoading, setLoading] = useState(true);
   const [error, setError] = useState({ show: false, msg: "" });
+
+  const fetchMovie = async (url) => {
+    const res = await fetch(url);
+    const data = await res.json();
+  };
+
+  useEffect(() => {}, [id]);
   return <h2>single movie</h2>;
 };
 
