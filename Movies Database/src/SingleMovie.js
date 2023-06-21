@@ -37,7 +37,20 @@ const SingleMovie = () => {
       </div>
     );
   }
-  return <h2>single movie</h2>;
+  const { Poster: poster, Title: title, Plot: plot, Year: year } = movie;
+  return (
+    <section className="single-movie">
+      <img src={poster} alt={title} />
+      <div className="single-movie-info">
+        <h4>{title}</h4>
+        <p>{plot}</p>
+        <h4>{year}</h4>
+        <Link to="/" className="btn">
+          Back
+        </Link>
+      </div>
+    </section>
+  );
 };
 
 export default SingleMovie;
