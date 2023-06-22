@@ -4,7 +4,7 @@ import useFetch from "./useFetch";
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  const [query, setQuery] = useState("batman");
+  const [query, setQuery] = useState("superman");
 
   const { isLoading, error, data: movies } = useFetch(`&s=${query}`);
 
