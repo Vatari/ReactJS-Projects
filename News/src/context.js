@@ -22,6 +22,12 @@ const AppProvider = ({ children }) => {
 
   const fetchStories = async (url) => {
     dispatch({ type: SET_LOADING });
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {
