@@ -29,13 +29,17 @@ const AppProvider = ({ children }) => {
     try {
       const res = await fetch(url);
       const data = await res.json();
+      dispatch({
+        type: SET_STORIES,
+        payload: { hits: data.hits, nbPages: data.nbPages },
+      });
     } catch (err) {
       console.log(err);
     }
   };
 
   useEffect(() => {
-    fetchStories();
+    fetchStories(`${API_ENDPOINT}query=${state.querry}&page=${state.page}`);
   }, []);
   return (
     <AppContext.Provider value={{ ...state }}>{children}</AppContext.Provider>
