@@ -20,12 +20,15 @@ const Stories = () => {
             </p>{" "}
             {num_comments} comments
             <div>
-              <a href={url} className="read-link">
+              <a
+                href={url}
+                className="read-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Read more...
               </a>
-              <button className="remove-btn" formTarget="_blank">
-                Remove
-              </button>
+              <button className="remove-btn">Remove</button>
             </div>
           </article>
         );
