@@ -3,12 +3,18 @@ import React from "react";
 import { useGlobalContext } from "./context";
 
 const Stories = () => {
-  const { isLoading } = useGlobalContext();
+  const { isLoading, hits } = useGlobalContext();
 
   if (isLoading) {
     return <div className="loading"></div>;
   }
-  return <h2>stories component</h2>;
+  return (
+    <section className="stories">
+      {hits.map((story) => {
+        return <article className="story"></article>;
+      })}
+    </section>
+  );
 };
 
 export default Stories;
