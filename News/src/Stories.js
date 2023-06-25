@@ -19,6 +19,12 @@ const Stories = () => {
               {points} Points by <span>{author} | </span>
             </p>{" "}
             {num_comments} comments
+            <div>
+              <a href={url} className="read-link">
+                Read more...
+              </a>
+              <button className="remove-btn">Remove</button>
+            </div>
           </article>
         );
       })}
