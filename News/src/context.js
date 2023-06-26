@@ -38,7 +38,9 @@ const AppProvider = ({ children }) => {
     }
   };
 
-  const removeStory = (id) => {};
+  const removeStory = (id) => {
+    dispatch({ type: REMOVE_STORY, payload: id });
+  };
 
   useEffect(() => {
     fetchStories(`${API_ENDPOINT}query=${state.querry}&page=${state.page}`);
