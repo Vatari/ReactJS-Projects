@@ -39,7 +39,7 @@ const reducer = (state, action) => {
         }
         return { ...state, page: prevPage };
       }
-
+      break;
     default:
       throw new Error(`No matchin "${action.type}" action type`);
   }
