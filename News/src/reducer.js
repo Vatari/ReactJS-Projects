@@ -24,6 +24,8 @@ const reducer = (state, action) => {
       };
     case HANDLE_SEARCH:
       return { ...state, query: action.payload, page: 0 };
+      case: HANDLE_PAGE:
+      return
     default:
       throw new Error(`No matchin "${action.type}" action type`);
   }
