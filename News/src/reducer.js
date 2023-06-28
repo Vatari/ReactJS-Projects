@@ -24,8 +24,14 @@ const reducer = (state, action) => {
       };
     case HANDLE_SEARCH:
       return { ...state, query: action.payload, page: 0 };
-      case: HANDLE_PAGE:
-      return
+    case HANDLE_PAGE:
+      if (action.payload === "inc") {
+        let nextPage = state.page + 1;
+        if (nextPage > state.nbPages - 1) {
+          nextPage = 0;
+        }
+      }
+
     default:
       throw new Error(`No matchin "${action.type}" action type`);
   }
