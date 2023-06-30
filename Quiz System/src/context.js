@@ -29,7 +29,10 @@ const AppProvider = ({ children }) => {
     setLoading(true);
     setWaiting(false);
     const res = await axios(url).catch((err) => console.log(err));
-    console.log(res);
+    if (res) {
+    } else {
+      setWaiting(true);
+    }
   };
 
   useEffect(() => {
