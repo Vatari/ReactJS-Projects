@@ -12,7 +12,7 @@ function App() {
   if (loading) {
     return <Loading />;
   }
-  const { question, incorrect_answers, correct_answer } = questions[0];
+  const { question, incorrect_answers, correct_answer } = questions[index];
   const answers = [...incorrect_answers, correct_answer];
 
   return (
@@ -24,7 +24,19 @@ function App() {
         </p>
         <article className="container">
           <h2 dangerouslySetInnerHTML={{ __html: question }} />
+          <div className="btn-container">
+            {answers.map((answer, index) => {
+              return (
+                <button
+                  key={index}
+                  className="answer-btn"
+                  dangerouslySetInnerHTML={{ __html: answer }}
+                />
+              );
+            })}
+          </div>
         </article>
+        <button className="next-question">Next question</button>
       </section>
     </main>
   );
