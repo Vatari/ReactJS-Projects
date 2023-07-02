@@ -66,6 +66,7 @@ const AppProvider = ({ children }) => {
         correct,
         error,
         isModalOpen,
+        nextQuestion,
       }}
     >
       {children}
