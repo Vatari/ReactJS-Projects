@@ -10,7 +10,10 @@ const Modal = () => {
     >
       <div className="modal-content">
         <h2>Correct answer</h2>
-        <p>You answered of questions correctly</p>
+        <p>
+          You answered {((correct / questions.length) * 100).toFixed(0)} of
+          questions correctly
+        </p>
         <button className="close-btn" onClick={closeModal}>
           Try again
         </button>
