@@ -8,7 +8,13 @@ const Modal = () => {
     <div
       className={`${isModalOpen ? "modal-container isOpen" : "modal-contaner"}`}
     >
-      <div className="modal-content">Correct answer</div>
+      <div className="modal-content">
+        <h2>Correct answer</h2>
+        <p>You answered of questions correctly</p>
+        <button className="close-btn" onClick={closeModal}>
+          Try again
+        </button>
+      </div>
     </div>
   );
 };
