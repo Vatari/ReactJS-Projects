@@ -4,7 +4,13 @@ import { useGlobalContext } from "./context";
 const Modal = () => {
   const { isModalOpen, closeModal, correct, questions } = useGlobalContext();
 
-  return <h2>modal component</h2>;
+  return (
+    <div
+      className={`${isModalOpen ? "modal-container isOpen" : "modal-contaner"}`}
+    >
+      <div className="modal-content">Correct answer</div>
+    </div>
+  );
 };
 
 export default Modal;
