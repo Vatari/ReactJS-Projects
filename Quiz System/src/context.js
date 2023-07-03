@@ -49,6 +49,7 @@ const AppProvider = ({ children }) => {
     setIndex((oldIndex) => {
       const index = oldIndex + 1;
       if (index > questions.length - 1) {
+        openModal();
         return 0;
       } else {
         return index;
@@ -65,6 +66,10 @@ const AppProvider = ({ children }) => {
 
   const openModal = () => {
     setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setWaiting(true);
+    setIsModalOpen(false);
   };
 
   useEffect(() => {
