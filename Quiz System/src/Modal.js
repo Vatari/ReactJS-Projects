@@ -6,7 +6,9 @@ const Modal = () => {
 
   return (
     <div
-      className={`${isModalOpen ? "modal-container isOpen" : "modal-contaner"}`}
+      className={`${
+        isModalOpen ? "modal-container isOpen" : "modal-container"
+      }`}
     >
       <div className="modal-content">
         <h2>Correct answer</h2>
