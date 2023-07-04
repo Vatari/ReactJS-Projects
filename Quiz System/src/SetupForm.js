@@ -29,7 +29,11 @@ const SetupForm = () => {
               className="form-input"
               value={quiz.category}
               onChange={handleChange}
-            ></select>
+            >
+              <option value="sports">Sports</option>
+              <option value="history">Sports</option>
+              <option value="politics">Sports</option>
+            </select>
           </div>
           {error && (
             <p className="error">
