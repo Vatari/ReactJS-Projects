@@ -31,8 +31,8 @@ const SetupForm = () => {
               onChange={handleChange}
             >
               <option value="sports">Sports</option>
-              <option value="history">Sports</option>
-              <option value="politics">Sports</option>
+              <option value="history">History</option>
+              <option value="politics">Politics</option>
             </select>
           </div>
 
@@ -45,9 +45,9 @@ const SetupForm = () => {
               value={quiz.difficulty}
               onChange={handleChange}
             >
-              <option value="easy">Sports</option>
-              <option value="medium">Sports</option>
-              <option value="hard">Sports</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
             </select>
           </div>
 
