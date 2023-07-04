@@ -6,7 +6,21 @@ const SetupForm = () => {
   return (
     <main>
       <section className="quiz quiz-small">
-        <form className="setup-form"></form>
+        <form className="setup-form">
+          <div className="form-control">
+            <label htmlFor="amount">Number of questions</label>
+            <input
+              type="number"
+              name="amount"
+              id="amount"
+              value={quiz.amount}
+              onChange={handleChange}
+              className="form-input"
+              min={1}
+              max={50}
+            />
+          </div>
+        </form>
       </section>
     </main>
   );
