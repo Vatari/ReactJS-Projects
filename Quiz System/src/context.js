@@ -77,10 +77,11 @@ const AppProvider = ({ children }) => {
     setCorrect(0);
     setIsModalOpen(false);
   };
+  const handleChange = (e) => {};
 
-  useEffect(() => {
-    fetchQuestions(tempUrl);
-  }, []);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <AppContext.Provider
@@ -95,6 +96,9 @@ const AppProvider = ({ children }) => {
         nextQuestion,
         checkAnswer,
         closeModal,
+        quiz,
+        handleChange,
+        handleSubmit,
       }}
     >
       {children}
