@@ -21,12 +21,24 @@ const SetupForm = () => {
               max={50}
             />
           </div>
+          <div className="form-control">
+            <label htmlFor="categoty">Category</label>
+            <select
+              name="category"
+              id="category"
+              className="form-input"
+              value={quiz.category}
+              onChange={handleChange}
+            ></select>
+          </div>
           {error && (
             <p className="error">
               Cant generate questions, please try different options
             </p>
           )}
-          <button type="submit" onClick={handleSubmit}></button>
+          <button type="submit" onClick={handleSubmit} className="submit-btn">
+            Start
+          </button>
         </form>
       </section>
     </main>
