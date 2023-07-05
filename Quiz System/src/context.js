@@ -77,7 +77,10 @@ const AppProvider = ({ children }) => {
     setCorrect(0);
     setIsModalOpen(false);
   };
-  const handleChange = (e) => {};
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
