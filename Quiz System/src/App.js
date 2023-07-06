@@ -24,6 +24,7 @@ function App() {
   //const answers = [...incorrect_answers, correct_answer];
 
   let answers = [...incorrect_answers];
+  const tempIndex = Math.floor(Math.random() * 4);
 
   return (
     <main>
